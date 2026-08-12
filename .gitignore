@@ -14,4 +14,3 @@ core
 *.sysinfo.txt
 *.nsys-rep
 build/
-slurm-*.out

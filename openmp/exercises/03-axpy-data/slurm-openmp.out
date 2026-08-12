@@ -1,0 +1,11 @@
+launch CUDA kernel file=/scratch/project_2019754/ppulline/portable-gpu-programming/openmp/exercises/03-axpy-data/axpy.c function=main line=26 device=0 host-threadid=0 num_teams=0 thread_limit=0 kernelname=nvkernel_main_F1L26_2 grid=<<<11016136,1,1>>> block=<<<128,1,1>>> shmem=0b
+launch CUDA kernel file=/scratch/project_2019754/ppulline/portable-gpu-programming/openmp/exercises/03-axpy-data/axpy.c function=main line=39 device=0 host-threadid=0 num_teams=0 thread_limit=0 kernelname=nvkernel_main_F1L39_4 grid=<<<11016136,1,1>>> block=<<<128,1,1>>> shmem=0b
+download CUDA data  file=/scratch/project_2019754/ppulline/portable-gpu-programming/openmp/exercises/03-axpy-data/axpy.c function=main line=54 device=0 threadid=1 variable=y[:n] bytes=11280523264
+Array size n = 1410065408
+Input:
+a =   3.0000
+x =   0.0000   0.0000   0.0000   0.0000 ...   0.0000   0.0000   0.0000   0.0000
+y =   0.0000   0.0000   0.0000   0.0000 ...   0.0000   0.0000   0.0000   0.0000
+Output:
+y =   0.0000   0.0000   0.0000   0.0000 ...   0.0000   0.0000   0.0000   0.0000
+Time taken: 2.144871

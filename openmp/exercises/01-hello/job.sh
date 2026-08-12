@@ -11,5 +11,8 @@
 # Enable OpenMP offload debugging by uncommenting the line below
 export NVCOMPILER_ACC_NOTIFY=3
 
+module load nvhpc
+nvc -mp=gpu -O3 -gpu=cc90 -Wall hello.c -o hello.x
+
 # Run the program
 srun ./hello.x

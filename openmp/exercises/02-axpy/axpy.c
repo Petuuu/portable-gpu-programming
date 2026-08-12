@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "axpy_helper_functions.h"
-
+#include <time.h>
 
 int main(int argc, char* argv[]) {
     // Array size
@@ -27,17 +27,19 @@ int main(int argc, char* argv[]) {
         y[i] = i * frac * 100;
     }
 
-    // Print input values
+	// Print input values
     printf("Input:\n");
     printf("a = %8.4f\n", alpha);
     print_array("x", x, n);
     print_array("y", y, n);
 
     // Calculate axpy
-    // TODO: Add OpenMP directives for GPU execution
-    for (int i = 0; i < n; i++) {
-        y[i] += alpha * x[i];
-    }
+	clock_t start = clock();
+	// #pragma omp target teams distribute parallel for map(to: x[0:n]) map(tofrom: y[0:n])
+	for (int i = 0; i < n; i++) {
+    	y[i] += alpha * x[i];
+	}
+	clock_t end = clock();
 
     // Print output values
     printf("Output:\n");
@@ -46,5 +48,6 @@ int main(int argc, char* argv[]) {
     free(y);
     free(x);
 
+	printf("Time taken: %.6f\n", (double)(end - start) / (double)CLOCKS_PER_SEC);
     return 0;
 }
